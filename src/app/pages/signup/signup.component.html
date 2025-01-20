@@ -1,0 +1,65 @@
+<!-- sign-up.component.html -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="text-center mb-4">SignUp</h3>
+          <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Enter your name"
+                [(ngModel)]="model.name"
+                name="name"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter your email"
+                [(ngModel)]="model.email"
+                name="email"
+                required
+                email
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                [(ngModel)]="model.password"
+                name="password"
+                required
+                minlength="6"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="!signupForm.form.valid"
+            >
+              SignUp
+            </button>
+            <div class="mt-3 text-center">
+              <span>Already have an account? </span>
+              <button type="button" class="btn btn-link" (click)="goToSignIn()">
+                Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
